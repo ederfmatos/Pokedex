@@ -1,5 +1,0 @@
-spring:
-  datasource:
-    url: jdbc:postgresql://192.241.152.103:5432/pokedex?useSSL=true
-    username: postgres
-    password: 123456
