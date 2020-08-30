@@ -1,10 +1,8 @@
 package com.whatfucksoftware.pokedex.model.entity;
 
+import com.whatfucksoftware.pokedex.mapper.converter.PokemonTypeEnumConverter;
 import com.whatfucksoftware.pokedex.model.enumeration.PokemonTypeEnum;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.With;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.HashSet;
@@ -15,6 +13,7 @@ import java.util.Set;
 @NoArgsConstructor
 @Data
 @With
+@Builder
 @Table(name = "pokemons")
 public class PokemonEntity {
 
@@ -25,15 +24,15 @@ public class PokemonEntity {
     @Column(name = "name", nullable = false, unique = true)
     private String name;
 
-    @Column(name = "pokemon_number", nullable = false)
+    @Column(name = "pokemon_number", nullable = false, unique = true)
     private Integer number;
 
     @Column(name = "primary_type", nullable = false)
-    @Enumerated(EnumType.STRING)
+    @Convert(converter = PokemonTypeEnumConverter.class)
     private PokemonTypeEnum primaryType;
 
     @Column(name = "secondary_type")
-    @Enumerated(EnumType.STRING)
+    @Convert(converter = PokemonTypeEnumConverter.class)
     private PokemonTypeEnum secondaryType;
 
     @ElementCollection(fetch = FetchType.LAZY)

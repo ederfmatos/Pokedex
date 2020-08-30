@@ -1,5 +1,6 @@
 package com.whatfucksoftware.pokedex.mapper;
 
+import com.whatfucksoftware.pokedex.model.dto.PokemonDTO;
 import com.whatfucksoftware.pokedex.model.dto.PokemonListDTO;
 import com.whatfucksoftware.pokedex.model.entity.PokemonEntity;
 import lombok.RequiredArgsConstructor;
@@ -14,6 +15,10 @@ public final class PokemonMapper {
 
     public PokemonListDTO toListDTO(PokemonEntity pokemonEntity) {
         return modelMapper.map(pokemonEntity, PokemonListDTO.class);
+    }
+
+    public PokemonEntity toEntity(PokemonDTO pokemon) {
+        return modelMapper.map(pokemon, PokemonEntity.class);
     }
 
 }
