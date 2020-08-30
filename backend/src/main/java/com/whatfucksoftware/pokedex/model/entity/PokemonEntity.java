@@ -25,23 +25,25 @@ public class PokemonEntity {
     @Column(name = "name", nullable = false, unique = true)
     private String name;
 
-    @Column(name = "number", nullable = false)
+    @Column(name = "pokemon_number", nullable = false)
     private Integer number;
 
-    @Column(name = "primaryType", nullable = false)
+    @Column(name = "primary_type", nullable = false)
     @Enumerated(EnumType.STRING)
     private PokemonTypeEnum primaryType;
 
-    @Column(name = "secondaryType")
+    @Column(name = "secondary_type")
     @Enumerated(EnumType.STRING)
     private PokemonTypeEnum secondaryType;
 
     @ElementCollection(fetch = FetchType.LAZY)
-    @CollectionTable(name = "pokemon_images")
+    @CollectionTable(name = "pokemon_images", joinColumns = @JoinColumn(name = "pokemon_id"), foreignKey = @ForeignKey(name = "images_pokemon_fk"))
+    @Column(name = "image_url")
     private Set<String> images = new HashSet<>();
 
     @ElementCollection(fetch = FetchType.LAZY)
-    @CollectionTable(name = "pokemon_skills")
+    @CollectionTable(name = "pokemon_skills", joinColumns = @JoinColumn(name = "pokemon_id"), foreignKey = @ForeignKey(name = "skills_pokemon_fk"))
+    @Column(name = "skill")
     private Set<String> skills = new HashSet<>();
 
 }
