@@ -10,4 +10,8 @@ public class PokemonNotFound extends RuntimeException {
         super("Pokemon não encontrado!");
     }
 
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> acbee0f06198474a1869f6d53d0a8344b3998bf7
