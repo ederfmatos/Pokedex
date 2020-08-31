@@ -43,8 +43,8 @@ public class PokemonController {
 
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public PokemonDTO delete(@PathVariable("id") String id) {
-        return pokemonService.delete(id);
+    public void delete(@PathVariable("id") String id) {
+        pokemonService.delete(id);
     }
 
 }
