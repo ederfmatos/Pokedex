@@ -40,7 +40,6 @@ public class PokemonServiceImpl implements PokemonService {
 
     @Override
     public PokemonDTO create(PokemonDTO pokemon) {
-        log.info("Realizando criação de pokemon [{}]", pokemon);
         pokemon.setId(UUID.randomUUID().toString());
         pokemonRepository.save(pokemonMapper.toEntity(pokemon));
         return pokemon;
@@ -48,9 +47,10 @@ public class PokemonServiceImpl implements PokemonService {
 
     @Override
     public PokemonDTO update(String id, PokemonDTO pokemonDto) {
-        if( !pokemonRepository.existsById(id) ){
+        if (!pokemonRepository.existsById(id)) {
             throw new PokemonNotFound();
         }
+
         PokemonEntity pokemon = pokemonMapper.toEntity(pokemonDto);
         pokemon.setId(id);
         return pokemonMapper.toDTO(pokemonRepository.save(pokemon));
@@ -58,9 +58,10 @@ public class PokemonServiceImpl implements PokemonService {
 
     @Override
     public void delete(String id) {
-        if( !pokemonRepository.existsById(id) ){
+        if (!pokemonRepository.existsById(id)) {
             throw new PokemonNotFound();
         }
+
         pokemonRepository.deleteById(id);
     }
 
