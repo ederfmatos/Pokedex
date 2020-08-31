@@ -1,5 +1,6 @@
 package com.whatfucksoftware.pokedex.service.impl;
 
+import com.whatfucksoftware.pokedex.exception.PokemonNotFound;
 import com.whatfucksoftware.pokedex.mapper.PokemonMapper;
 import com.whatfucksoftware.pokedex.model.dto.PokemonDTO;
 import com.whatfucksoftware.pokedex.model.dto.PokemonListDTO;
@@ -49,8 +50,13 @@ public class PokemonServiceImpl implements PokemonService {
     }
 
     @Override
-    public PokemonDTO update(String id, PokemonDTO pokemon) {
-        return null;
+    public PokemonDTO update(String id, PokemonDTO pokemonDto) {
+        if(pokemonRepository.existsById(id)){
+            PokemonEntity pokemon = pokemonMapper.toEntity(pokemonDto);
+            pokemon.setId(id);
+            return pokemonMapper.toDTO(pokemonRepository.save(pokemon));
+        }
+        throw new PokemonNotFound();
     }
 
     @Override
