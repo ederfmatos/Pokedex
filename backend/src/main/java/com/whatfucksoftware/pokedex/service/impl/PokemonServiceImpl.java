@@ -1,5 +1,6 @@
 package com.whatfucksoftware.pokedex.service.impl;
 
+import com.whatfucksoftware.pokedex.exception.InvalidArgumentsException;
 import com.whatfucksoftware.pokedex.exception.PokemonNotFound;
 import com.whatfucksoftware.pokedex.mapper.PokemonMapper;
 import com.whatfucksoftware.pokedex.model.dto.PokemonDTO;
@@ -12,6 +13,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
@@ -40,6 +42,14 @@ public class PokemonServiceImpl implements PokemonService {
 
     @Override
     public PokemonDTO create(PokemonDTO pokemon) {
+        if (pokemonRepository.existsByName(pokemon.getName())) {
+            throw new InvalidArgumentsException("Já existe um pokemon com esse nome, escolha outro");
+        }
+
+        if (pokemonRepository.existsByNumber(pokemon.getNumber())) {
+            throw new InvalidArgumentsException("Já existe um pokemon com esse número, escolha outro");
+        }
+
         pokemon.setId(UUID.randomUUID().toString());
         pokemonRepository.save(pokemonMapper.toEntity(pokemon));
         return pokemon;
@@ -49,6 +59,16 @@ public class PokemonServiceImpl implements PokemonService {
     public PokemonDTO update(String id, PokemonDTO pokemonDto) {
         if (!pokemonRepository.existsById(id)) {
             throw new PokemonNotFound();
+        }
+
+        Optional<PokemonEntity> pokemonWithNumber = pokemonRepository.findByNumber(pokemonDto.getNumber());
+        if (pokemonWithNumber.isPresent() && !pokemonWithNumber.get().getId().equals(id)) {
+            throw new InvalidArgumentsException("Já existe um pokemon com esse número, escolha outro");
+        }
+
+        Optional<PokemonEntity> pokemonWithName = pokemonRepository.findByNumber(pokemonDto.getNumber());
+        if (pokemonWithName.isPresent() && !pokemonWithName.get().getId().equals(id)) {
+            throw new InvalidArgumentsException("Já existe um pokemon com esse nome, escolha outro");
         }
 
         PokemonEntity pokemon = pokemonMapper.toEntity(pokemonDto);
