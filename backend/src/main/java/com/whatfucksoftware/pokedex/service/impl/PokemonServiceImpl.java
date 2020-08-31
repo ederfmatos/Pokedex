@@ -1,9 +1,9 @@
 package com.whatfucksoftware.pokedex.service.impl;
 
+import com.whatfucksoftware.pokedex.exception.PokemonNotFound;
 import com.whatfucksoftware.pokedex.mapper.PokemonMapper;
 import com.whatfucksoftware.pokedex.model.dto.PokemonDTO;
 import com.whatfucksoftware.pokedex.model.dto.PokemonListDTO;
-import com.whatfucksoftware.pokedex.model.entity.PokemonEntity;
 import com.whatfucksoftware.pokedex.repository.PokemonRepository;
 import com.whatfucksoftware.pokedex.service.PokemonService;
 import lombok.RequiredArgsConstructor;
@@ -11,10 +11,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
-import java.util.Set;
 import java.util.UUID;
-import java.util.function.Function;
 import java.util.stream.Collectors;
 
 @Service
@@ -36,8 +33,8 @@ public class PokemonServiceImpl implements PokemonService {
     @Override
     public PokemonDTO findById(String id) {
         return pokemonRepository.findById(id)
-                .flatMap(pokemonEntity -> Optional.of(pokemonMapper.toDTO(pokemonEntity)))
-                .orElseThrow(() -> new NullPointerException("null"));
+                .map(pokemonMapper::toDTO)
+                .orElseThrow(PokemonNotFound::new);
     }
 
     @Override
