@@ -11,7 +11,10 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
+import java.util.Set;
 import java.util.UUID;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 @Service
@@ -32,15 +35,16 @@ public class PokemonServiceImpl implements PokemonService {
 
     @Override
     public PokemonDTO findById(String id) {
-        return null;
+        return pokemonRepository.findById(id)
+                .flatMap(pokemonEntity -> Optional.of(pokemonMapper.toDTO(pokemonEntity)))
+                .orElseThrow(() -> new NullPointerException("null"));
     }
 
     @Override
     public PokemonDTO create(PokemonDTO pokemon) {
         log.info("Realizando criação de pokemon [{}]", pokemon);
         pokemon.setId(UUID.randomUUID().toString());
-        PokemonEntity pokemonEntity = pokemonMapper.toEntity(pokemon);
-        pokemonRepository.save(pokemonEntity);
+        pokemonRepository.save(pokemonMapper.toEntity(pokemon));
         return pokemon;
     }
 

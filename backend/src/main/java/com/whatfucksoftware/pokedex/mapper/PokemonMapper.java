@@ -21,4 +21,8 @@ public final class PokemonMapper {
         return modelMapper.map(pokemon, PokemonEntity.class);
     }
 
+    public PokemonDTO toDTO(PokemonEntity pokemon) {
+        return modelMapper.map(pokemon, PokemonDTO.class);
+    }
+
 }

@@ -39,6 +39,10 @@ public final class PokemonTypeEnumConverter implements AttributeConverter<Pokemo
 
     @Override
     public PokemonTypeEnum convertToEntityAttribute(Integer dbData) {
+        if (dbData == null) {
+            return null;
+        }
+
         return PokemonTypeEnum.of(dbData);
     }
 
