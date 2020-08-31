@@ -17,18 +17,18 @@ public class ControllerExceptionHandler {
         return new ApiErrors(HttpStatus.NOT_FOUND.value(), exception);
     }
 
-}
+    @Getter
+    class ApiErrors {
+        private Long timestamp;
+        private Integer statusCode;
+        private List<String> errors;
 
-@Getter
-class ApiErrors {
-    private Long timestamp;
-    private Integer statusCode;
-    private List<String> errors;
-
-    ApiErrors(Integer statusCode, PokemonNotFound e){
-        timestamp = System.currentTimeMillis();
-        this.statusCode = statusCode;
-        errors = Arrays.asList(e.getMessage());
+        ApiErrors(Integer statusCode, PokemonNotFound e){
+            timestamp = System.currentTimeMillis();
+            this.statusCode = statusCode;
+            errors = Arrays.asList(e.getMessage());
+        }
     }
 }
+
 

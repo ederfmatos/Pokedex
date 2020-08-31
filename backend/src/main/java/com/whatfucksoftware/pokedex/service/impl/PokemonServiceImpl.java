@@ -48,17 +48,20 @@ public class PokemonServiceImpl implements PokemonService {
 
     @Override
     public PokemonDTO update(String id, PokemonDTO pokemonDto) {
-        if(pokemonRepository.existsById(id)){
-            PokemonEntity pokemon = pokemonMapper.toEntity(pokemonDto);
-            pokemon.setId(id);
-            return pokemonMapper.toDTO(pokemonRepository.save(pokemon));
+        if( !pokemonRepository.existsById(id) ){
+            throw new PokemonNotFound();
         }
-        throw new PokemonNotFound();
+        PokemonEntity pokemon = pokemonMapper.toEntity(pokemonDto);
+        pokemon.setId(id);
+        return pokemonMapper.toDTO(pokemonRepository.save(pokemon));
     }
 
     @Override
-    public PokemonDTO delete(String id) {
-        return null;
+    public void delete(String id) {
+        if( !pokemonRepository.existsById(id) ){
+            throw new PokemonNotFound();
+        }
+        pokemonRepository.deleteById(id);
     }
 
 }

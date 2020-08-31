@@ -15,6 +15,6 @@ public interface PokemonService {
 
     PokemonDTO update(String id, PokemonDTO pokemon);
 
-    PokemonDTO delete(String id);
+    void delete(String id);
 
 }
