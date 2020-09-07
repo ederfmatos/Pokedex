@@ -12,6 +12,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -45,7 +46,7 @@ public class PokemonController {
     @ResponseStatus(HttpStatus.CREATED)
     @ApiOperation("Create a pokemon")
     @ApiResponses(value = @ApiResponse(code = 204, message = "Pokemon successfully created"))
-    public PokemonDTO create(@RequestBody PokemonDTO pokemon) {
+    public PokemonDTO create(@RequestBody @Valid PokemonDTO pokemon) {
         return pokemonService.create(pokemon);
     }
 
