@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+
+:root {
+  --primary: #ff0930;
+  --primaryDark: #b20621;
+  --lightGray: #fbfbfb;
+  --fontFamily: 'Ubuntu', Arial, sans-serif;
+  --box-shadow1: 0px 3px 3px rgba(0, 0, 0, 0.1);
+}
+
+.app {
+  height: 100vh;
+  width: 100vw;
+}
+
+.animeLeft {
+  opacity: 0;
+  transform: translateX(-20px);
+  animation: animeLeft 0.3s forwards;
+}
+
+@keyframes animeLeft {
+  to {
+    opacity: 1;
+    transform: initial;
+  }
+}
+
+body {
+  background: var(--lightGray);
+  font-family: var(--fontFamily);
+}
+
+button,
+input {
+  font-family: var(--fontFamily);
+}
+
+.type-none,
+.type-0 {
+  background: #eeeeee;
+}
+.type-normal,
+.type-1 {
+  background: #a0a29f;
+}
+.type-fire,
+.type-2 {
+  background: #fba54c;
+}
+.type-fight,
+.type-3 {
+  background: #d3425f;
+}
+.type-water,
+.type-4 {
+  background: #539ddf;
+}
+.type-fly,
+.type-5 {
+  background: #a1bbec;
+}
+.type-grass,
+.type-6 {
+  background: #5fbd58;
+}
+.type-poison,
+.type-7 {
+  background: #b763cf;
+}
+.type-electric,
+.type-8 {
+  background: #f2d94e;
+}
+.type-ground,
+.type-9 {
+  background: #da7c4d;
+}
+.type-psychic,
+.type-10 {
+  background: #fa8581;
+}
+.type-rock,
+.type-11 {
+  background: #c9bb8a;
+}
+.type-ice,
+.type-12 {
+  background: #75d0c1;
+}
+.type-bug,
+.type-13 {
+  background: #92bc2c;
+}
+.type-dragon,
+.type-14 {
+  background: #0c69c8;
+}
+.type-ghost,
+.type-15 {
+  background: #5f6dbc;
+}
+.type-dark,
+.type-16 {
+  background: #595761;
+}
+.type-steel,
+.type-17 {
+  background: #5695a3;
+}
+.type-fairy,
+.type-18 {
+  background: #ee90e6;
+}

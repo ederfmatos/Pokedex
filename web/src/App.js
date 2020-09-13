@@ -1,8 +1,13 @@
 import React from 'react';
-import './App.css';
+import './App.scss';
+import Header from './components/Header';
 
 function App() {
-  return <div>Pokédex</div>;
+  return (
+    <div style={{ height: '150vh' }}>
+      <Header />
+    </div>
+  );
 }
 
 export default App;

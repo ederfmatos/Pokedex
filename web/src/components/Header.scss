@@ -1,0 +1,13 @@
+.header {
+  padding: 2rem;
+  height: 10rem;
+  display: flex;
+  width: 100vw;
+  align-items: center;
+
+  &--fixed {
+    position: fixed;
+    height: 5rem;
+    box-shadow: var(--box-shadow1);
+  }
+}
