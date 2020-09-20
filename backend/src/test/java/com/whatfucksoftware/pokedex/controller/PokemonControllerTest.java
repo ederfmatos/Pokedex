@@ -165,7 +165,8 @@ public class PokemonControllerTest {
     @Test
     @DisplayName("Deve alterar um pokemon")
     public void shouldBeUpdatePokemon() throws Exception {
-        com.ederfmatos.mockbean.MockBean<PokemonDTO> mock = mock(PokemonDTO.class);
+        com.ederfmatos.mockbean.MockBean<PokemonDTO> mock = mock(PokemonDTO.class)
+                .with("number", 15);
 
         String pokemonJson = mock.json();
         PokemonDTO pokemonDTO = mock.build();
