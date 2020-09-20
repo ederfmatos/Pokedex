@@ -20,13 +20,16 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilder;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
+import java.util.List;
 import java.util.Set;
+import java.util.UUID;
 
 import static com.ederfmatos.mockbean.MockBean.mock;
 import static java.lang.String.valueOf;
 import static org.hamcrest.Matchers.hasSize;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.BDDMockito.given;
+import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -97,11 +100,12 @@ public class PokemonControllerTest {
     @Test
     @DisplayName("Deve retornar um pokemon com o id informado")
     public void returnPokemonWithIdTest() throws Exception {
-        String id = "KfdfpjH1fd5220gfKlDDOSu";
+        String id = UUID.randomUUID().toString();
         PokemonDTO pokemonDto = mock(PokemonDTO.class)
                 .with("images", Set.of("001", "002"))
+                .with("id", id)
                 .build();
-        pokemonDto.setId(id);
+
         given(service.findById(id)).willReturn(pokemonDto);
 
         MockHttpServletRequestBuilder request = MockMvcRequestBuilders
@@ -122,11 +126,89 @@ public class PokemonControllerTest {
     @Test
     @DisplayName("Deve lançar um erro com a mensagem de pokemon não encontrado")
     public void pokemonNotFoundTest() throws Exception {
-        String id = "lkkkglfiuioldasddsg";
+        String id = UUID.randomUUID().toString();
         given(service.findById(id)).willThrow(new PokemonNotFound());
 
         MockHttpServletRequestBuilder request = MockMvcRequestBuilders
                 .get(PokemonRoutes.POKEMONS.concat("/" + id))
+                .contentType(MediaType.APPLICATION_JSON)
+                .accept(MediaType.APPLICATION_JSON);
+
+        mvc.perform(request)
+                .andDo(print())
+                .andExpect(status().isNotFound())
+                .andExpect(jsonPath("errors", hasSize(1)))
+                .andExpect(jsonPath("statusCode").value(404))
+                .andExpect(jsonPath("timestamp").isNumber())
+                .andExpect(jsonPath("errors[0]").value("Pokemon não encontrado!"));
+    }
+
+    @Test
+    @DisplayName("Deve listar pokemons")
+    public void shouldBeListPokemons() throws Exception {
+        List<PokemonDTO> pokemons = mock(PokemonDTO.class)
+                .build(5);
+
+        doReturn(pokemons).when(service).findAll();
+
+        MockHttpServletRequestBuilder request = MockMvcRequestBuilders
+                .get(PokemonRoutes.POKEMONS)
+                .contentType(MediaType.APPLICATION_JSON)
+                .accept(MediaType.APPLICATION_JSON);
+
+        mvc.perform(request)
+                .andDo(print())
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$", hasSize(5)));
+    }
+
+    @Test
+    @DisplayName("Deve alterar um pokemon")
+    public void shouldBeUpdatePokemon() throws Exception {
+        com.ederfmatos.mockbean.MockBean<PokemonDTO> mock = mock(PokemonDTO.class);
+
+        String pokemonJson = mock.json();
+        PokemonDTO pokemonDTO = mock.build();
+        final String id = UUID.randomUUID().toString();
+
+        doReturn(pokemonDTO).when(service).update(any(), any());
+
+        MockHttpServletRequestBuilder request = MockMvcRequestBuilders
+                .put(PokemonRoutes.POKEMONS.concat("/" + id))
+                .content(pokemonJson)
+                .contentType(MediaType.APPLICATION_JSON)
+                .accept(MediaType.APPLICATION_JSON);
+
+        mvc.perform(request)
+                .andDo(print())
+                .andExpect(status().isOk());
+    }
+
+    @Test
+    @DisplayName("Deve deletar um pokemon")
+    public void shouldBeDeletePokemon() throws Exception {
+        final String id = UUID.randomUUID().toString();
+
+        doNothing().when(service).delete(any());
+
+        MockHttpServletRequestBuilder request = MockMvcRequestBuilders
+                .delete(PokemonRoutes.POKEMONS.concat("/" + id))
+                .contentType(MediaType.APPLICATION_JSON)
+                .accept(MediaType.APPLICATION_JSON);
+
+        mvc.perform(request)
+                .andDo(print())
+                .andExpect(status().isNoContent());
+    }
+
+    @Test
+    @DisplayName("Deve lançar um erro com a mensagem de pokemon não encontrado")
+    public void shouldBeThrowErrorOnPokemonNotFound() throws Exception {
+        String id = UUID.randomUUID().toString();
+        doThrow(new PokemonNotFound()).when(service).delete(any());
+
+        MockHttpServletRequestBuilder request = MockMvcRequestBuilders
+                .delete(PokemonRoutes.POKEMONS.concat("/" + id))
                 .contentType(MediaType.APPLICATION_JSON)
                 .accept(MediaType.APPLICATION_JSON);
 
