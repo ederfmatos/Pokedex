@@ -66,7 +66,7 @@ public class PokemonServiceImpl implements PokemonService {
             throw new InvalidArgumentsException("Já existe um pokemon com esse número, escolha outro");
         }
 
-        Optional<PokemonEntity> pokemonWithName = pokemonRepository.findByNumber(pokemonDto.getNumber());
+        Optional<PokemonEntity> pokemonWithName = pokemonRepository.findByName(pokemonDto.getName());
         if (pokemonWithName.isPresent() && !pokemonWithName.get().getId().equals(id)) {
             throw new InvalidArgumentsException("Já existe um pokemon com esse nome, escolha outro");
         }
