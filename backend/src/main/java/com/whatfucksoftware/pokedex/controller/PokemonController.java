@@ -57,7 +57,7 @@ public class PokemonController {
             @ApiResponse(code = 200, message = "Pokemon successfully updated"),
             @ApiResponse(code = 404, message = "Pokemon not found", response = ControllerExceptionHandler.ApiErrors.class),
     })
-    public PokemonDTO update(@PathVariable("id") String id, @RequestBody PokemonDTO pokemon) {
+    public PokemonDTO update(@PathVariable("id") String id, @RequestBody @Valid PokemonDTO pokemon) {
         return pokemonService.update(id, pokemon);
     }
 
