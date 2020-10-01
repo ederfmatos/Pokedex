@@ -2,6 +2,7 @@ import React from 'react';
 import Api from './Api';
 import './App.scss';
 import Header from './components/Header';
+import Spinner from './components/Spinner';
 import PokemonList from './components/Pokemon/PokemonList';
 
 function App() {
@@ -14,7 +15,8 @@ function App() {
     <div style={{ height: '150vh' }}>
       <Header />
       <main>
-        <PokemonList />
+        <Spinner />
+        {/* <PokemonList /> */}
       </main>
     </div>
   );

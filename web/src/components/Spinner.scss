@@ -1,0 +1,54 @@
+$spinnerSize: 3rem;
+$spinnerSpace: 1rem;
+
+.spinner {
+  width: $spinnerSize;
+  height: $spinnerSize;
+  border-radius: 50%;
+  display: inline-block;
+  position: relative;
+  border: 3px solid;
+  border-color: var(--spinner) var(--spinner) transparent transparent;
+  animation: rotation 1s linear infinite;
+
+  &:after,
+  &:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    border: 3px solid;
+    border-color: transparent transparent var(--primary) var(--primary);
+    width: #{$spinnerSize - $spinnerSpace / 2};
+    height: #{$spinnerSize - $spinnerSpace / 2};
+    border-radius: 50%;
+    animation: rotationBack 0.5s linear infinite;
+    transform-origin: center center;
+  }
+  &:before {
+    width: #{$spinnerSize - $spinnerSpace};
+    height: #{$spinnerSize - $spinnerSpace};
+    border-color: var(--spinner) var(--spinner) transparent transparent;
+    animation: rotation 1.5s linear infinite;
+  }
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes rotationBack {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-360deg);
+  }
+}
