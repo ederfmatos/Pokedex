@@ -1,0 +1,38 @@
+$decorWhite: rgba(255, 255, 255, 0.15);
+$decorWhite2: rgba(255, 255, 255, 0.1);
+
+.pokemon {
+  display: flex;
+  padding: 0.875rem;
+  border-radius: 4px;
+
+  &__image {
+    background: $decorWhite;
+    border-radius: 4px;
+    height: 5rem;
+    width: 5rem;
+  }
+
+  &__content {
+    margin-left: 0.875rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  &__content > label {
+    text-align: start;
+    color: rgba(255, 255, 255, 0.87);
+    background: $decorWhite;
+    border-radius: 4px;
+    padding: 0.25rem;
+    width: fit-content;
+  }
+
+  &__number {
+    font-size: 0.875rem;
+  }
+
+  &__name {
+    font-size: 1.2rem;
+  }
+}

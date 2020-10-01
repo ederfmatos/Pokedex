@@ -4,7 +4,7 @@ import PokemonItem from './PokemonItem';
 const PokemonList = () => {
   return (
     <div>
-      <PokemonItem pokemon={{ name }} />
+      <PokemonItem />
     </div>
   );
 };

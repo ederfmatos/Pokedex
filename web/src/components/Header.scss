@@ -1,13 +1,20 @@
 .header {
-  padding: 2rem;
-  height: 10rem;
+  padding: 1rem;
+  height: 5rem;
   display: flex;
   width: 100vw;
+  position: fixed;
+  top: 0;
   align-items: center;
+  background: var(--lightGray);
+  z-index: 200;
 
   &--fixed {
-    position: fixed;
-    height: 5rem;
     box-shadow: var(--box-shadow1);
   }
+}
+
+.header + main {
+  margin-top: 5rem;
+  padding: 1rem;
 }
