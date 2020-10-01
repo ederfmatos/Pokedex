@@ -1,23 +1,22 @@
 import React from 'react';
-import Api from './Api';
-import './App.scss';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Header from './components/Header';
-import Spinner from './components/Spinner';
-import PokemonList from './components/Pokemon/PokemonList';
+import Home from './home/Home';
+import './App.scss';
 
 function App() {
-  React.useEffect(() => {
-    Api.get('/pokemons')
-      .then((data) => console.log(data))
-      .catch((err) => console.log(err));
-  }, []);
   return (
-    <div style={{ height: '150vh' }}>
-      <Header />
-      <main>
-        <Spinner />
-        {/* <PokemonList /> */}
-      </main>
+    <div>
+      <BrowserRouter>
+        <Header />
+        <main className="AppBody">
+          <Switch>
+            <Route path="/">
+              <Home />
+            </Route>
+          </Switch>
+        </main>
+      </BrowserRouter>
     </div>
   );
 }
