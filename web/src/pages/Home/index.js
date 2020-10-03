@@ -1,16 +1,30 @@
-import React from "react";
-// import Api from './Api';
-import { Spinner } from "../../components";
+import React, { useState, useEffect } from "react";
+import { PokemonList, Spinner } from "../../components";
+import PokemonService from "../../services/PokemonService";
 
 const Home = () => {
-  // React.useEffect(() => {
-  //   Api.get('/pokemons')
-  //     .then((data) => console.log(data))
-  //     .catch((err) => console.log(err));
-  // }, []);
+  const [loading, setLoading] = useState(false);
+  const [pokemons, setPokemons] = useState([]);
+
+  useEffect(() => {
+    setLoading(true);
+
+    PokemonService.findAll()
+      .then(setPokemons)
+      .finally(() => setLoading(false));
+  }, []);
+
+  if (loading) {
+    return (
+      <div>
+        <Spinner />
+      </div>
+    );
+  }
+
   return (
     <div>
-      <Spinner />
+      <PokemonList pokemons={pokemons} />
     </div>
   );
 };
