@@ -10,6 +10,7 @@ import com.whatfucksoftware.pokedex.repository.PokemonRepository;
 import com.whatfucksoftware.pokedex.service.PokemonService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -27,7 +28,7 @@ public class PokemonServiceImpl implements PokemonService {
 
     @Override
     public List<PokemonListDTO> findAll() {
-        return pokemonRepository.findAll()
+        return pokemonRepository.findAll(Sort.by("number"))
                 .stream()
                 .map(pokemonMapper::toListDTO)
                 .collect(Collectors.toList());
