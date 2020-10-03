@@ -1,4 +1,5 @@
 $spinnerSize: 3rem;
+$spinnerMediumSize: 2rem;
 $spinnerSpace: 1rem;
 
 .spinner {
@@ -33,6 +34,21 @@ $spinnerSpace: 1rem;
     height: #{$spinnerSize - $spinnerSpace};
     border-color: var(--spinner) var(--spinner) transparent transparent;
     animation: rotation 1.5s linear infinite;
+  }
+}
+
+.simple-spinner {
+  width: $spinnerSize;
+  height: $spinnerSize;
+  border: 5px solid $spinnerWhite;
+  border-bottom-color: $whiteEmphais;
+  border-radius: 50%;
+  display: inline-block;
+  animation: rotation 1s linear infinite;
+
+  &--medium {
+    width: $spinnerMediumSize;
+    height: $spinnerMediumSize;
   }
 }
 

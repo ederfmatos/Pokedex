@@ -1,5 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
 
+$white: #fff;
+$whiteEmphais: rgba(255, 255, 255, 0.87);
+$whiteNotEmphais: rgba(255, 255, 255, 0.67);
+$spinnerWhite: rgba(255, 255, 255, 0.47);
+$black: #000;
+$blackEmphasis: rgba(0, 0, 0, 0.87);
+$blackNotEmphasis: rgba(0, 0, 0, 0.67);
+$lightGray: #fbfbfb;
 $headerSize: 4rem;
 $box-shadow2: 0px 3px 3px rgba(0, 0, 0, 0.1);
 $typeOverlay: #00000010;
@@ -15,11 +23,9 @@ $typeOverlay: #00000010;
 :root {
   --primary: #ff0930;
   --primaryDark: #b20621;
-  --lightGray: #fbfbfb;
-  --textWhiteEmphais: rgba(255, 255, 255, 0.87);
-  --textColorEmphasis: rgba(0, 0, 0, 0.87);
-  --textColor: rgba(0, 0, 0, 0.67);
-  --box-shadow1: 0px 3px 3px rgba(0, 0, 0, 0.1);
+  --background: #{$lightGray};
+  --textColorEmphasis: #{$blackEmphasis};
+  --textColor: #{$blackNotEmphasis};
   --spinner: rgba(0, 0, 0, 0.77);
 }
 
@@ -46,7 +52,7 @@ $typeOverlay: #00000010;
 }
 
 body {
-  background: var(--lightGray);
+  background: var(--background);
   font-family: $fontFamily;
   font-size: $baseFontSize;
 }

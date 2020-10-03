@@ -1,16 +1,17 @@
 import React from 'react';
+import ImageLoader from '../ImageLoader';
 import PokemonType from './PokemonType';
 
 const PokemonItem = ({ pokemon }) => {
   return (
     <div className={`pokemon type-${pokemon.primaryType.toLowerCase()}`}>
-      <idiv className="pokemon__imageContainer">
-        <img
+      <div className="pokemon__imageContainer">
+        <ImageLoader
           className="pokemon__image"
           src={pokemon.images[0]}
           alt={pokemon.name}
         />
-      </idiv>
+      </div>
       <div className="pokemon__content">
         <label className="text text--small bold">Nº {pokemon.number}</label>
         <label className="text text--big bold">{pokemon.name}</label>

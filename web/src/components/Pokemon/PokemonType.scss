@@ -11,7 +11,7 @@
     height: 1rem;
   }
   span {
-    color: var(--textWhiteEmphais);
+    color: $whiteEmphais;
     font-weight: bold;
   }
 }
@@ -36,7 +36,7 @@
 .type-4 {
   background: #539ddf;
 }
-.type-fly,
+.type-flying,
 .type-5 {
   background: #a1bbec;
 }
