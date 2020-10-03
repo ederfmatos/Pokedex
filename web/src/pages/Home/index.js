@@ -3,7 +3,7 @@ import { PokemonList, Spinner } from '../../components';
 import PokemonService from '../../services/PokemonService';
 
 const Home = () => {
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [pokemons, setPokemons] = useState([]);
 
   useEffect(() => {
@@ -16,16 +16,16 @@ const Home = () => {
 
   if (loading) {
     return (
-      <div>
+      <div className="align-center">
         <Spinner />
       </div>
     );
   }
 
   return (
-    <div>
+    <>
       <PokemonList pokemons={pokemons} />
-    </div>
+    </>
   );
 };
 
