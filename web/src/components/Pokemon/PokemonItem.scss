@@ -1,28 +1,57 @@
-$decorWhite: rgba(255, 255, 255, 0.15);
-$decorWhite2: rgba(255, 255, 255, 0.1);
+$decorWhite: rgba(255, 255, 255, 0.1);
+$decorWhite2: rgba(255, 255, 255, 0.2);
 
 .pokemon {
-  display: flex;
-  padding: 0.875rem;
-  border-radius: 4px;
+  display: grid;
+  position: relative;
+  grid-template-columns: 3fr 7fr;
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+
+  &::before {
+    content: '';
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: #00000010;
+  }
+
+  &__imageContainer {
+    position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+      height: 90%;
+      width: 90%;
+      right: 5%;
+      bottom: 5%;
+      border-radius: 10%;
+      background: $decorWhite;
+    }
+  }
 
   &__image {
-    background: $decorWhite;
-    border-radius: 4px;
-    height: 5rem;
-    width: 5rem;
+    width: 100%;
+    transform: translateZ(1px);
   }
 
   &__content {
-    margin-left: 0.875rem;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-left: 1rem;
   }
   &__content > label {
+    transform: translateZ(1px);
     text-align: start;
     color: rgba(255, 255, 255, 0.87);
-    background: $decorWhite;
+    background: $decorWhite2;
     border-radius: 4px;
     padding: 0.25rem;
     width: fit-content;

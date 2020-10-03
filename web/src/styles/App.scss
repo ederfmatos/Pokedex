@@ -5,16 +5,18 @@ $box-shadow2: 0px 3px 3px rgba(0, 0, 0, 0.1);
 
 @import '../components/Header/Header.scss';
 @import '../components/Spinner/Spinner.scss';
+@import '../components//Pokemon/PokemonList.scss';
+@import '../components//Pokemon/PokemonItem.scss';
 
 :root {
   --primary: #ff0930;
   --primaryDark: #b20621;
   --lightGray: #fbfbfb;
+  --textWhiteEmphais: rgba(255, 255, 255, 0.87);
   --textColorEmphasis: rgba(0, 0, 0, 0.87);
   --textColor: rgba(0, 0, 0, 0.67);
   --fontFamily: 'Ubuntu', Arial, sans-serif;
   --box-shadow1: 0px 3px 3px rgba(0, 0, 0, 0.1);
-
   --spinner: rgba(0, 0, 0, 0.77);
 }
 
@@ -24,8 +26,8 @@ $box-shadow2: 0px 3px 3px rgba(0, 0, 0, 0.1);
 }
 
 .AppBody {
-  height: 100vh;
-  width: 100vw;
+  // height: 100vh;
+  // width: 100vw;
   padding: calc(#{$headerSize} + 1rem) 1rem 1rem 1rem;
 }
 
@@ -52,11 +54,11 @@ input {
   font-family: var(--fontFamily);
 }
 
-.align-center {
+.app-align-center {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100%;
+  height: calc(100vh - #{$headerSize} - 2rem);
   width: 100%;
 }
 
