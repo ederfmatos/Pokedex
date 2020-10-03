@@ -1,9 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu&display=swap");
 
 $box-shadow2: 0px 3px 3px rgba(0, 0, 0, 0.1);
 
-@import './components/Header.scss';
-@import './components/Spinner.scss';
+@import "../components/Header/Header.scss";
+@import "../components/Spinner/Spinner.scss";
 
 :root {
   --primary: #ff0930;
@@ -11,7 +11,7 @@ $box-shadow2: 0px 3px 3px rgba(0, 0, 0, 0.1);
   --lightGray: #fbfbfb;
   --textColorEmphasis: rgba(0, 0, 0, 0.87);
   --textColor: rgba(0, 0, 0, 0.67);
-  --fontFamily: 'Ubuntu', Arial, sans-serif;
+  --fontFamily: "Ubuntu", Arial, sans-serif;
   --box-shadow1: 0px 3px 3px rgba(0, 0, 0, 0.1);
 
   --spinner: rgba(0, 0, 0, 0.77);

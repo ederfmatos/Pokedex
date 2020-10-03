@@ -1,6 +1,6 @@
-import React from 'react';
+import React from "react";
 // import Api from './Api';
-import Spinner from '../components/Spinner';
+import { Spinner } from "../../components";
 
 const Home = () => {
   // React.useEffect(() => {
