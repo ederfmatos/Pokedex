@@ -1,17 +1,25 @@
 import React from 'react';
+import PokemonType from './PokemonType';
 
-const PokemonItem = () => {
+const PokemonItem = ({ pokemon }) => {
   return (
     <div className="pokemon type-fire">
       <idiv className="pokemon__imageContainer">
         <img
           className="pokemon__image"
-          src="https://vignette.wikia.nocookie.net/pocketmonster/images/f/ff/Mega_Charizard_Y.png/revision/latest?cb=20160909131912&path-prefix=pt-br"
+          src={pokemon.images[0]}
+          alt={pokemon.name}
         />
       </idiv>
       <div className="pokemon__content">
-        <label className="pokemon__number">Nº 4</label>
-        <label className="pokemon__name">Charmander</label>
+        <label className="pokemon__number">Nº {pokemon.number}</label>
+        <label className="pokemon__name">{pokemon.name}</label>
+        <div className="pokemon__types">
+          <PokemonType type={pokemon.primaryType} />
+          {pokemon.secondaryType && (
+            <PokemonType type={pokemon.secondaryType} />
+          )}
+        </div>
       </div>
     </div>
   );

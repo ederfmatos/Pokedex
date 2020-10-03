@@ -2,7 +2,9 @@
 
 $headerSize: 5rem;
 $box-shadow2: 0px 3px 3px rgba(0, 0, 0, 0.1);
+$typeOverlay: #00000010;
 
+@import '../components/Pokemon/PokemonType.scss';
 @import '../components/Header/Header.scss';
 @import '../components/Spinner/Spinner.scss';
 @import '../components//Pokemon/PokemonList.scss';
@@ -60,81 +62,4 @@ input {
   align-items: center;
   height: calc(100vh - #{$headerSize} - 2rem);
   width: 100%;
-}
-
-.type-none,
-.type-0 {
-  background: #eeeeee;
-}
-.type-normal,
-.type-1 {
-  background: #a0a29f;
-}
-.type-fire,
-.type-2 {
-  background: #fba54c;
-}
-.type-fight,
-.type-3 {
-  background: #d3425f;
-}
-.type-water,
-.type-4 {
-  background: #539ddf;
-}
-.type-fly,
-.type-5 {
-  background: #a1bbec;
-}
-.type-grass,
-.type-6 {
-  background: #5fbd58;
-}
-.type-poison,
-.type-7 {
-  background: #b763cf;
-}
-.type-electric,
-.type-8 {
-  background: #f2d94e;
-}
-.type-ground,
-.type-9 {
-  background: #da7c4d;
-}
-.type-psychic,
-.type-10 {
-  background: #fa8581;
-}
-.type-rock,
-.type-11 {
-  background: #c9bb8a;
-}
-.type-ice,
-.type-12 {
-  background: #75d0c1;
-}
-.type-bug,
-.type-13 {
-  background: #92bc2c;
-}
-.type-dragon,
-.type-14 {
-  background: #0c69c8;
-}
-.type-ghost,
-.type-15 {
-  background: #5f6dbc;
-}
-.type-dark,
-.type-16 {
-  background: #595761;
-}
-.type-steel,
-.type-17 {
-  background: #5695a3;
-}
-.type-fairy,
-.type-18 {
-  background: #ee90e6;
 }

@@ -1,5 +1,5 @@
-$decorWhite: rgba(255, 255, 255, 0.1);
-$decorWhite2: rgba(255, 255, 255, 0.2);
+$decorWhite1: rgba(255, 255, 255, 0.07);
+$decorWhite2: rgba(255, 255, 255, 0.1);
 
 .pokemon {
   display: grid;
@@ -9,34 +9,51 @@ $decorWhite2: rgba(255, 255, 255, 0.2);
   padding: 1rem;
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
 
-  &::before {
+  *::before,
+  &::before,
+  *::after,
+  &::after {
     content: '';
+    position: absolute;
+  }
+
+  &::before {
     height: 100%;
     width: 100%;
-    position: absolute;
     left: 0;
     top: 0;
-    background: #00000010;
+    background: $typeOverlay;
+  }
+
+  &::after {
+    height: 3rem;
+    width: 3rem;
+    right: 0.5rem;
+    top: 0.875rem;
+    transform: rotate(16deg);
+    border-radius: 0.875rem;
+    background: $decorWhite1;
   }
 
   &__imageContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     position: relative;
 
     &::before {
-      content: '';
-      position: absolute;
       height: 90%;
       width: 90%;
       right: 5%;
       bottom: 5%;
       border-radius: 10%;
-      background: $decorWhite;
+      background: $decorWhite1;
     }
   }
 
   &__image {
     width: 100%;
-    transform: translateZ(1px);
+    transform: scale(1.1);
   }
 
   &__content {
@@ -46,6 +63,30 @@ $decorWhite2: rgba(255, 255, 255, 0.2);
     justify-content: center;
     gap: 0.5rem;
     margin-left: 1rem;
+
+    &::after {
+      height: 3rem;
+      width: 3rem;
+      top: 4.5rem;
+      right: 3rem;
+      transform: rotate(16deg);
+      border-top-right-radius: 0.875rem;
+      border-top-left-radius: 0.875rem;
+      background: rgba(255, 255, 255, 0.07);
+      background: $decorWhite1;
+    }
+
+    &::before {
+      height: 3rem;
+      width: 3rem;
+      top: 0.5rem;
+      right: 4.5rem;
+      transform: rotate(16deg);
+      border-bottom-right-radius: 0.875rem;
+      border-bottom-left-radius: 0.875rem;
+      background: rgba(255, 255, 255, 0.07);
+      background: $decorWhite1;
+    }
   }
   &__content > label {
     transform: translateZ(1px);
@@ -53,15 +94,20 @@ $decorWhite2: rgba(255, 255, 255, 0.2);
     color: rgba(255, 255, 255, 0.87);
     background: $decorWhite2;
     border-radius: 4px;
-    padding: 0.25rem;
+    padding: 0.25rem 0.5rem;
     width: fit-content;
   }
 
   &__number {
-    font-size: 0.875rem;
+    font-size: 1rem;
   }
 
   &__name {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
+  }
+
+  &__types {
+    display: flex;
+    gap: 0.25rem;
   }
 }
