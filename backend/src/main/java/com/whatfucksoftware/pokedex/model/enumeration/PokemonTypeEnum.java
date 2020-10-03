@@ -3,6 +3,8 @@ package com.whatfucksoftware.pokedex.model.enumeration;
 import lombok.Getter;
 
 import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
 
 @Getter
 public enum PokemonTypeEnum {
@@ -31,6 +33,14 @@ public enum PokemonTypeEnum {
 
     PokemonTypeEnum(int number) {
         this.number = number;
+    }
+
+    public static PokemonTypeEnum of(List<Map<String, Map<String, String>>> types, int number) {
+        try {
+            return PokemonTypeEnum.valueOf(types.get(number).get("type").get("name").toUpperCase());
+        } catch (Throwable throwable) {
+            return null;
+        }
     }
 
     public static PokemonTypeEnum of(int number) {
