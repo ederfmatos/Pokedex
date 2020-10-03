@@ -1,13 +1,11 @@
 import React from 'react';
 
 const Header = () => {
-  const header = React.useRef();
   const [fixed, setFixed] = React.useState(false);
 
   React.useEffect(() => {
     function scrollEvent() {
-      if (fixed !== window.scrollY > header.current.offsetHeight * 0.25)
-        setFixed(!fixed);
+      setFixed(window.scrollY > 10);
     }
 
     window.addEventListener('scroll', scrollEvent);
@@ -17,7 +15,7 @@ const Header = () => {
   }, [fixed]);
 
   return (
-    <header ref={header} className={`header${fixed ? ' header--fixed' : ''}`} a>
+    <header className={`header${fixed ? ' header--fixed' : ''}`}>
       <h3 className="title title--primary">Pokédex</h3>
     </header>
   );
