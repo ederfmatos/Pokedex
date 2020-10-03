@@ -3,7 +3,7 @@ import PokemonType from './PokemonType';
 
 const PokemonItem = ({ pokemon }) => {
   return (
-    <div className="pokemon type-fire">
+    <div className={`pokemon type-${pokemon.primaryType.toLowerCase()}`}>
       <idiv className="pokemon__imageContainer">
         <img
           className="pokemon__image"
@@ -12,8 +12,8 @@ const PokemonItem = ({ pokemon }) => {
         />
       </idiv>
       <div className="pokemon__content">
-        <label className="pokemon__number">Nº {pokemon.number}</label>
-        <label className="pokemon__name">{pokemon.name}</label>
+        <label className="text text--small bold">Nº {pokemon.number}</label>
+        <label className="text text--big bold">{pokemon.name}</label>
         <div className="pokemon__types">
           <PokemonType type={pokemon.primaryType} />
           {pokemon.secondaryType && (

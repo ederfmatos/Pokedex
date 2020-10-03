@@ -18,7 +18,7 @@ const Header = () => {
 
   return (
     <header ref={header} className={`header${fixed ? ' header--fixed' : ''}`} a>
-      <h2 className="header__title">Pokédex</h2>
+      <h3 className="title title--primary">Pokédex</h3>
     </header>
   );
 };
