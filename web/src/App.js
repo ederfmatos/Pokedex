@@ -1,10 +1,10 @@
-import React from "react";
-import { BrowserRouter } from "react-router-dom";
+import React from 'react';
+import { BrowserRouter } from 'react-router-dom';
 
-import { Header } from "./components";
-import "./styles/App.scss";
+import { Header } from './components';
+import './styles/App.scss';
 
-import Routes from "./routes";
+import Routes from './routes';
 
 function App() {
   return (

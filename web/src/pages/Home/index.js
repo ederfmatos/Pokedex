@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
-import { PokemonList, Spinner } from "../../components";
-import PokemonService from "../../services/PokemonService";
+import React, { useState, useEffect } from 'react';
+import { PokemonList, Spinner } from '../../components';
+import PokemonService from '../../services/PokemonService';
 
 const Home = () => {
   const [loading, setLoading] = useState(false);

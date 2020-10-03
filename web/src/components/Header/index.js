@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 const Header = () => {
   const header = React.useRef();
@@ -10,14 +10,14 @@ const Header = () => {
         setFixed(!fixed);
     }
 
-    window.addEventListener("scroll", scrollEvent);
+    window.addEventListener('scroll', scrollEvent);
     return () => {
-      window.removeEventListener("scroll", scrollEvent);
+      window.removeEventListener('scroll', scrollEvent);
     };
   }, [fixed]);
 
   return (
-    <header ref={header} className={`header${fixed ? " header--fixed" : ""}`} a>
+    <header ref={header} className={`header${fixed ? ' header--fixed' : ''}`} a>
       <h2 className="header__title">Pokédex</h2>
     </header>
   );

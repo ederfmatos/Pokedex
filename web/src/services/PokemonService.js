@@ -1,8 +1,8 @@
-import api from "./api";
+import api from './api';
 
 class PokemonService {
   findAll() {
-    return api.get("/pokemons").then(({ data }) => data);
+    return api.get('/pokemons').then(({ data }) => data);
   }
 }
 
