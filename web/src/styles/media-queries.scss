@@ -1,0 +1,42 @@
+// 640px
+@media (min-width: 40rem) {
+  $headerSize: 5rem;
+
+  .header {
+    height: $headerSize;
+  }
+
+  .AppBody {
+    padding: calc(#{$headerSize} + 1rem) 1rem 1rem 1rem;
+  }
+
+  .title {
+    &--primary {
+      font-size: 1.6rem;
+    }
+
+    &--secondary {
+      font-size: 1.2rem;
+    }
+  }
+}
+
+// 720px
+@media (min-width: 45rem) {
+  .pokemonList {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+// 1080px
+@media (min-width: 67.5rem) {
+  .pokemonList {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+//  1600px
+@media (min-width: 100rem) {
+  .pokemonList {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

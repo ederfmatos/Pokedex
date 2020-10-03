@@ -95,17 +95,7 @@ $decorWhite2: rgba(255, 255, 255, 0.1);
     background: $decorWhite2;
     border-radius: 4px;
     padding: 0.25rem 0.5rem;
-    width: fit-content;
   }
-
-  // &__number {
-  //   font-size: 1rem;
-  // }
-
-  // &__name {
-  //   font-size: 1.5rem;
-  // }
-
   &__types {
     display: flex;
     gap: 0.25rem;

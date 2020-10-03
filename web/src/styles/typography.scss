@@ -42,15 +42,3 @@ $smallFontSize: 0.7rem;
 .caption {
   font-size: $smallFontSize;
 }
-
-@media (min-width: 40rem) {
-  .title {
-    &--primary {
-      font-size: 1.6rem;
-    }
-
-    &--secondary {
-      font-size: 1.2rem;
-    }
-  }
-}

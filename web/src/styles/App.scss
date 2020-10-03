@@ -10,6 +10,7 @@ $typeOverlay: #00000010;
 @import '../components/Spinner/Spinner.scss';
 @import '../components//Pokemon/PokemonList.scss';
 @import '../components//Pokemon/PokemonItem.scss';
+@import './media-queries.scss';
 
 :root {
   --primary: #ff0930;
@@ -66,14 +67,4 @@ input {
   align-items: center;
   height: calc(100vh - #{$headerSize} - 2rem);
   width: 100%;
-}
-
-@media (min-width: 40rem) {
-  $headerSize: 5rem;
-  .header {
-    height: $headerSize;
-  }
-  .AppBody {
-    padding: calc(#{$headerSize} + 1rem) 1rem 1rem 1rem;
-  }
 }

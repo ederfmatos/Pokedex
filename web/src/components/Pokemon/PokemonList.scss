@@ -3,21 +3,3 @@
   grid-template-columns: 1fr;
   grid-gap: 1rem;
 }
-
-@media (min-width: 45rem) {
-  .pokemonList {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (min-width: 65rem) {
-  .pokemonList {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-@media (min-width: 100rem) {
-  .pokemonList {
-    grid-template-columns: repeat(4, 1fr);
-  }
-}
