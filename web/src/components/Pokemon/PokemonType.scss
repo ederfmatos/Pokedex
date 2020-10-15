@@ -1,3 +1,24 @@
+$typeNone: #eeeeee;
+$typeNormal: #a0a29f;
+$typeFire: #fba54c;
+$typeFighting: #d3425f;
+$typeWater: #539ddf;
+$typeFlying: #a1bbec;
+$typeGrass: #5fbd58;
+$typePoison: #b763cf;
+$typeElectric: #f2d94e;
+$typeGround: #da7c4d;
+$typePyshic: #fa8581;
+$typeRock: #c9bb8a;
+$typeIce: #75d0c1;
+$typeBug: #92bc2c;
+$typeDragon: #0c69c8;
+$typeGhost: #5f6dbc;
+$typeDark: #595761;
+$typeSteel: #5695a3;
+$typeFairy: #ee90e6;
+$darkAmount: 7%;
+
 .type {
   display: flex;
   align-content: center;
@@ -11,84 +32,141 @@
     height: 1rem;
   }
   span {
-    color: $whiteEmphais;
+    color: $whiteEmphasis;
     font-weight: bold;
   }
 }
 
 .type-none,
 .type-0 {
-  background: #eeeeee;
+  background: $typeNone;
+  &--dark {
+    background: darken($typeNone, $darkAmount);
+  }
 }
 .type-normal,
 .type-1 {
-  background: #a0a29f;
+  background: $typeNormal;
+  &--dark {
+    background: darken($typeNormal, $darkAmount);
+  }
 }
 .type-fire,
 .type-2 {
-  background: #fba54c;
+  background: $typeFire;
+  &--dark {
+    background: darken($typeFire, $darkAmount);
+  }
 }
-.type-fight,
+.type-fighting,
 .type-3 {
-  background: #d3425f;
+  background: $typeFighting;
+  &--dark {
+    background: darken($typeFighting, $darkAmount);
+  }
 }
 .type-water,
 .type-4 {
-  background: #539ddf;
+  background: $typeWater;
+  &--dark {
+    background: darken($typeWater, $darkAmount);
+  }
 }
 .type-flying,
 .type-5 {
-  background: #a1bbec;
+  background: $typeFlying;
+  &--dark {
+    background: darken($typeFlying, $darkAmount);
+  }
 }
 .type-grass,
 .type-6 {
-  background: #5fbd58;
+  background: $typeGrass;
+  &--dark {
+    background: darken($typeGrass, $darkAmount);
+  }
 }
 .type-poison,
 .type-7 {
-  background: #b763cf;
+  background: $typePoison;
+  &--dark {
+    background: darken($typePoison, $darkAmount);
+  }
 }
 .type-electric,
 .type-8 {
-  background: #f2d94e;
+  background: $typeElectric;
+  &--dark {
+    background: darken($typeElectric, $darkAmount);
+  }
 }
 .type-ground,
 .type-9 {
-  background: #da7c4d;
+  background: $typeGround;
+  &--dark {
+    background: darken($typeGround, $darkAmount);
+  }
 }
 .type-psychic,
 .type-10 {
-  background: #fa8581;
+  background: $typePyshic;
+  &--dark {
+    background: darken($typePyshic, $darkAmount);
+  }
 }
 .type-rock,
 .type-11 {
-  background: #c9bb8a;
+  background: $typeRock;
+  &--dark {
+    background: darken($typeRock, $darkAmount);
+  }
 }
 .type-ice,
 .type-12 {
-  background: #75d0c1;
+  background: $typeIce;
+  &--dark {
+    background: darken($typeIce, $darkAmount);
+  }
 }
 .type-bug,
 .type-13 {
-  background: #92bc2c;
+  background: $typeBug;
+  &--dark {
+    background: darken($typeBug, $darkAmount);
+  }
 }
 .type-dragon,
 .type-14 {
-  background: #0c69c8;
+  background: $typeDragon;
+  &--dark {
+    background: darken($typeDragon, $darkAmount);
+  }
 }
 .type-ghost,
 .type-15 {
-  background: #5f6dbc;
+  background: $typeGhost;
+  &--dark {
+    background: darken($typeGhost, $darkAmount);
+  }
 }
 .type-dark,
 .type-16 {
-  background: #595761;
+  background: $typeDark;
+  &--dark {
+    background: darken($typeDark, $darkAmount);
+  }
 }
 .type-steel,
 .type-17 {
-  background: #5695a3;
+  background: $typeSteel;
+  &--dark {
+    background: darken($typeSteel, $darkAmount);
+  }
 }
 .type-fairy,
 .type-18 {
-  background: #ee90e6;
+  background: $typeFairy;
+  &--dark {
+    background: darken($typeFairy, $darkAmount);
+  }
 }
