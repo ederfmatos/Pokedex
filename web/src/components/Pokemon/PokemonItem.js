@@ -1,10 +1,16 @@
 import React from 'react';
 import ImageLoader from '../ImageLoader';
 import PokemonType from './PokemonType';
+import { useHistory } from 'react-router-dom';
 
 const PokemonItem = ({ pokemon }) => {
+  const history = useHistory();
+
   return (
-    <div className={`pokemon type-${pokemon.primaryType.toLowerCase()}`}>
+    <div
+      onClick={() => history.push(`/pokemon/${pokemon.number}`)}
+      className={`pokemon type-${pokemon.primaryType.toLowerCase()}--dark`}
+    >
       <div className="pokemon__imageContainer">
         <ImageLoader
           className="pokemon__image"
