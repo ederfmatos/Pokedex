@@ -22,13 +22,14 @@ const PokemonList = () => {
 
   if (loading) {
     return (
-      <div className="app-align-center">
+      <div className="align-center homePageContent">
         <Spinner />
       </div>
     );
   }
 
-  if (error) return <Error error={error} className="app-align-center" />;
+  if (error)
+    return <Error error={error} className="align-center homePageContent" />;
 
   return (
     <div className="pokemonList">

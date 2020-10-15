@@ -1,18 +1,16 @@
 import React from 'react';
-import { BrowserRouter } from 'react-router-dom';
-
-import { Header } from './components';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { Home, Pokemon } from './pages';
 import './styles/App.scss';
-
-import Routes from './routes';
 
 function App() {
   return (
     <BrowserRouter>
-      <Header />
-      <main className="AppBody">
-        <Routes />
-      </main>
+      <Switch>
+        <Route path="/" exact={true} component={Home} />
+        <Route path="pokemon/:number" component={Pokemon} />
+        <Route path="*" component={Pokemon} />
+      </Switch>
     </BrowserRouter>
   );
 }

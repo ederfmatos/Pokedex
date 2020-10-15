@@ -2,7 +2,7 @@
 @media (min-width: 40rem) {
   $headerSize: 5rem;
 
-  .app-align-center {
+  .homePageContent {
     height: calc(100vh - #{$headerSize} - 2rem) !important;
   }
 
@@ -10,7 +10,7 @@
     height: $headerSize;
   }
 
-  .AppBody {
+  .homePage {
     padding: calc(#{$headerSize} + 1rem) 1rem 1rem 1rem !important;
   }
 

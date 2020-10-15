@@ -1,10 +1,13 @@
 import React from 'react';
-import { PokemonList } from '../../components';
+import { PokemonList, Header } from '../../components';
 
 const Home = () => {
   return (
     <>
-      <PokemonList />
+      <Header />
+      <main className="homePage">
+        <PokemonList />
+      </main>
     </>
   );
 };
