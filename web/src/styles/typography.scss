@@ -26,6 +26,14 @@ $smallFontSize: 0.7rem;
 }
 
 .title {
+  &--huge {
+    font-size: 2rem;
+  }
+
+  &--big {
+    font-size: 1.7rem;
+  }
+
   &--primary {
     font-size: 1.4rem;
   }
