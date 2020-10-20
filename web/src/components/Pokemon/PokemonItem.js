@@ -8,7 +8,7 @@ const PokemonItem = ({ pokemon }) => {
 
   return (
     <div
-      onClick={() => history.push(`/pokemon/${pokemon.number}`)}
+      onClick={() => history.push(`/pokemon/${pokemon.id}`)}
       className={`pokemon type-${pokemon.primaryType.toLowerCase()}--dark`}
     >
       <div className="pokemon__imageContainer">

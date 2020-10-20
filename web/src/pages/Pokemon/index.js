@@ -13,7 +13,6 @@ const Pokemon = props => {
   const [pokemon, setPokemon] = useState({});
 
   const matchups = DefensiveMatchups('grass', 'poison');
-  console.log(matchups);
   // useEffect(() => {
   //   PokemonService.findByNumber(number)
   //     .then(response => {
@@ -27,7 +26,7 @@ const Pokemon = props => {
   if (error) return <Error error={error} className="align-center fullScreen" />;
 
   return (
-    <div className="pokemonPage">
+    <div className={`pokemonPage ${loading ? '' : 'type-grass--dark'}`}>
       <div className={`pokemonHeader ${loading ? '' : 'pokemonHeader--white'}`}>
         <MdKeyboardBackspace className="back" />
         <h1 className="title title--big">Bulbasaur</h1>
@@ -39,17 +38,17 @@ const Pokemon = props => {
         </div>
       ) : (
         <>
-          <div className="imageWrapper type-grass--dark">
+          <div className="imageWrapper">
             <ImageLoader
               src="https://pokeres.bastionbot.org/images/pokemon/1.png"
               alt="Bulbasaur"
             />
           </div>
-          <div className="types">
-            <PokemonType type="grass" />
-            <PokemonType type="poison" />
-          </div>
           <div className="infoWrapper">
+            <div className="types">
+              <PokemonType type="grass" />
+              <PokemonType type="poison" />
+            </div>
             <h1 className="title title--secondary">Fraquezas</h1>
             <div className="matchups">
               {matchups

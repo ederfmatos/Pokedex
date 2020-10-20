@@ -1,11 +1,6 @@
-$imageWrapperHeight: 45vh;
-$contentHeight: 55vh;
-
 .pokemonPage {
   display: grid;
-  grid:
-    'image' $imageWrapperHeight
-    'info' $contentHeight;
+  grid-template-rows: 45vh 55vh;
   height: 100vh;
   width: 100vw;
 
@@ -31,17 +26,13 @@ $contentHeight: 55vh;
     }
   }
   .types {
-    position: fixed;
-    top: $imageWrapperHeight;
-    left: 50%;
-    transform: translate(-50%, -25%);
     display: flex;
     gap: 0.5rem;
-    z-index: 80;
+    justify-content: center;
+    margin-top: 0.875rem;
   }
 
   .imageWrapper {
-    grid-area: image;
     display: flex;
     justify-content: center;
     width: 100vw;
@@ -55,12 +46,17 @@ $contentHeight: 55vh;
   }
 
   .infoWrapper {
-    grid-area: info;
-    background: var(--backgroud);
-    padding: 1rem;
+    background: var(--background);
+    padding: 0 1rem 1rem 1rem;
+    border-top-left-radius: 24px;
+    border-top-right-radius: 24px;
 
     h1 {
-      margin: 1.5rem 0 1rem 0;
+      margin: 0.875rem 0 1rem 0;
+
+      &:last-of-type {
+        margin-top: 1.5rem;
+      }
     }
 
     .matchups {
