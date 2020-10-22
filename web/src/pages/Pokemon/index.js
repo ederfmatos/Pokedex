@@ -54,7 +54,10 @@ const Pokemon = props => {
               {matchups
                 .filter(match => match.effective > 1)
                 .map(match => (
-                  <PokemonType type={match.type}></PokemonType>
+                  <PokemonType
+                    type={match.type}
+                    effective={match.effective}
+                  ></PokemonType>
                 ))}
             </div>
             <h1 className="title title--secondary">Resistencias</h1>
@@ -62,7 +65,10 @@ const Pokemon = props => {
               {matchups
                 .filter(match => match.effective < 1)
                 .map(match => (
-                  <PokemonType type={match.type}></PokemonType>
+                  <PokemonType
+                    type={match.type}
+                    effective={match.effective}
+                  ></PokemonType>
                 ))}
             </div>
           </div>
