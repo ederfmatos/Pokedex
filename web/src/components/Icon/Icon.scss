@@ -4,6 +4,7 @@ $iconPadding: 0.5rem;
 .icon {
   font-size: $iconSize;
   text-align: center;
+  color: currentColor;
 
   &--big {
     font-size: $iconBigSize;
@@ -27,4 +28,11 @@ $iconPadding: 0.5rem;
       background: $decorWhite4;
     }
   }
+}
+
+a,
+svg {
+  text-decoration: none !important;
+  outline: none !important;
+  border: none !important;
 }

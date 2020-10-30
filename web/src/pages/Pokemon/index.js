@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import ImageLoader from '../../components/ImageLoader';
 import { Error, Icon, Spinner } from '../../components';
 import { MdKeyboardBackspace } from 'react-icons/md';
@@ -28,9 +28,9 @@ const Pokemon = props => {
   return (
     <div className={`pokemonPage ${loading ? '' : 'type-grass--dark'}`}>
       <div className={`pokemonHeader ${loading ? '' : 'pokemonHeader--white'}`}>
-        <Icon clickable={true} size="big">
+        <Link to="/" className="icon icon--clickable icon--big">
           <MdKeyboardBackspace />
-        </Icon>
+        </Link>
         <h1 className="title title--big">Bulbasaur</h1>
         <span className="text bold">#001</span>
       </div>
