@@ -1,0 +1,8 @@
+.homePage {
+  padding: calc(#{$headerSize} + 1rem) 1rem 1rem 1rem;
+}
+
+.homeFullPage {
+  height: calc(100vh - #{$headerSize} - 2rem);
+  width: 100%;
+}

@@ -1,0 +1,38 @@
+$iconSize: 1.6rem;
+$iconBigSize: 1.8rem;
+$iconPadding: 0.5rem;
+.icon {
+  font-size: $iconSize;
+  text-align: center;
+  color: currentColor;
+
+  &--big {
+    font-size: $iconBigSize;
+  }
+
+  svg {
+    vertical-align: middle;
+  }
+
+  &--clickable {
+    outline: none;
+    padding: $iconPadding;
+    border-radius: 0.5rem;
+    transition: all 0.2s ease-in-out;
+
+    &:focus,
+    &:hover {
+      background: $decorWhite3;
+    }
+    &:active {
+      background: $decorWhite4;
+    }
+  }
+}
+
+a,
+svg {
+  text-decoration: none !important;
+  outline: none !important;
+  border: none !important;
+}

@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+
+$white: #fff;
+$whiteEmphasis: rgba(255, 255, 255, 0.87);
+$whiteNotEmphasis: rgba(255, 255, 255, 0.67);
+$spinnerWhite: rgba(255, 255, 255, 0.47);
+$black: #000;
+$blackEmphasis: rgba(0, 0, 0, 0.87);
+$blackNotEmphasis: rgba(0, 0, 0, 0.67);
+$lightGray: #fbfbfb;
+$headerSize: 4rem;
+$box-shadow2: 0px 3px 3px rgba(0, 0, 0, 0.1);
+$typeOverlay: #00000010;
+$decorWhite1: rgba(255, 255, 255, 0.07);
+$decorWhite2: rgba(255, 255, 255, 0.1);
+$decorWhite3: rgba(255, 255, 255, 0.15);
+$decorWhite4: rgba(255, 255, 255, 0.22);
+
+@import '../styles/typography.scss';
+@import '../components/Header/Header.scss';
+@import '../components/Pokemon/PokemonType.scss';
+@import '../components/Spinner/Spinner.scss';
+@import '../components//Pokemon/PokemonList.scss';
+@import '../components//Pokemon/PokemonItem.scss';
+@import '../components/Icon/Icon.scss';
+@import '../pages/Home/Home.scss';
+@import '../pages/Pokemon/PagePokemon.scss';
+@import './media-queries.scss';
+
+:root {
+  --primary: #ff0930;
+  --primaryDark: #b20621;
+  --background: #{$lightGray};
+  --textColorEmphasis: #{$blackEmphasis};
+  --textColor: #{$blackNotEmphasis};
+  --spinner: rgba(0, 0, 0, 0.77);
+}
+
+.fullScreen {
+  height: 100vh;
+  width: 100vw;
+}
+
+.animeLeft {
+  opacity: 0;
+  transform: translateX(-20px);
+  animation: animeLeft 0.3s forwards;
+}
+
+.alignSelfCenter {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@keyframes animeLeft {
+  to {
+    opacity: 1;
+    transform: initial;
+  }
+}
+
+body {
+  background: var(--background);
+  font-family: $fontFamily;
+  font-size: $baseFontSize;
+}
+
+html {
+  font-size: $baseFontSize;
+}
+
+button,
+input {
+  font-size: $baseFontSize;
+  font-family: $fontFamily;
+}
+
+.align-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.colorWhiteEmphasis {
+  color: $whiteEmphasis;
+}

@@ -1,0 +1,107 @@
+.pokemon {
+  display: grid;
+  position: relative;
+  cursor: pointer;
+  grid-template-columns: 3fr 7fr;
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.15);
+  transition: all 0.2s ease-in-out;
+
+  &:active {
+    transform: translateY(2px) !important;
+    box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.05) !important;
+  }
+
+  &:hover,
+  &:focus {
+    transform: translateY(-5px);
+    box-shadow: 0px 2px 5px 4px rgba(0, 0, 0, 0.2);
+  }
+
+  *::before,
+  &::before,
+  *::after,
+  &::after {
+    content: '';
+    position: absolute;
+  }
+
+  &::after {
+    height: 3rem;
+    width: 3rem;
+    right: 0.5rem;
+    top: 0.875rem;
+    transform: rotate(16deg);
+    border-radius: 0.875rem;
+    background: $decorWhite1;
+  }
+
+  &__imageContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+
+    &::before {
+      height: 90%;
+      width: 90%;
+      right: 5%;
+      bottom: 5%;
+      border-radius: 10%;
+      background: $decorWhite1;
+    }
+  }
+
+  &__image {
+    width: 100%;
+    transform: scale(1.1);
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-left: 1rem;
+
+    &::after {
+      height: 3rem;
+      width: 3rem;
+      top: 4.5rem;
+      right: 3rem;
+      transform: rotate(16deg);
+      border-top-right-radius: 0.875rem;
+      border-top-left-radius: 0.875rem;
+      background: $decorWhite1;
+    }
+
+    &::before {
+      height: 3rem;
+      width: 3rem;
+      top: 0.5rem;
+      right: 4.5rem;
+      transform: rotate(16deg);
+      border-bottom-right-radius: 0.875rem;
+      border-bottom-left-radius: 0.875rem;
+      background: $decorWhite1;
+    }
+  }
+  &__content > label {
+    transform: translateZ(1px);
+    text-align: start;
+    color: rgba(255, 255, 255, 0.87);
+    background: $decorWhite2;
+    border-radius: 4px;
+    cursor: pointer;
+    padding: 0.25rem 0.5rem;
+  }
+  &__types {
+    display: flex;
+    gap: 0.25rem;
+  }
+  img {
+    user-select: none;
+  }
+}

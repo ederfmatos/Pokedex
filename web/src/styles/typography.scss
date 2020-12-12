@@ -1,0 +1,52 @@
+$fontSize: 1rem;
+$baseFontSize: 16px;
+$fontFamily: 'Ubuntu', Arial, sans-serif;
+$smallFontSize: 0.7rem;
+
+.text,
+.title {
+  font-family: $fontFamily;
+  font-size: 16px;
+  margin: 0;
+}
+
+.text {
+  &--big {
+    font-size: 1.35rem;
+  }
+
+  &--medium {
+    font-size: 1rem;
+  }
+
+  &--small {
+    font-size: 0.875rem;
+    line-height: 1rem;
+  }
+}
+
+.title {
+  &--huge {
+    font-size: 2rem;
+  }
+
+  &--big {
+    font-size: 1.7rem;
+  }
+
+  &--primary {
+    font-size: 1.4rem;
+  }
+
+  &--secondary {
+    font-size: 1rem;
+  }
+}
+
+.bold {
+  font-weight: 700;
+}
+
+.caption {
+  font-size: $smallFontSize;
+}
